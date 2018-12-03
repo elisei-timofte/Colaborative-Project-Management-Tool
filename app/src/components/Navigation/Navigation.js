@@ -1,15 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import './navigation.scss';
+import * as ROUTES from '../../constants/routes';
 
-const Navigation = ({ links }) => (
-  <div className="navigation">
+const Navigation = () => (
+  <div>
     <ul>
-      {links.map(link => (
-        <li key={link.to}>
-          <a href={link.to}>{link.label}</a>
-        </li>
-      ))}
+      <li>
+        <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+      </li>
+      <li>
+        <Link to={ROUTES.LANDING}>Landing</Link>
+      </li>
+      <li>
+        <Link to={ROUTES.HOME}>Home</Link>
+      </li>
+      <li>
+        <Link to={ROUTES.ACCOUNT}>Account</Link>
+      </li>
+      <li>
+        <Link to={ROUTES.ADMIN}>Admin</Link>
+      </li>
     </ul>
   </div>
 );
