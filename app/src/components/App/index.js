@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const App = () => (
-  <div>
-    <h1>App ceva</h1>
-  </div>
-);
+import Navigation from '../Navigation/Navigation.js';
+
+const LINKS = [
+  { label: 'Website', to: 'https://www.robinwieruch.de/' },
+  { label: 'Twitter', to: 'https://twitter.com/rwieruch' },
+];
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Navigation links={LINKS} />
+      </div>
+    );
+  }
+}
 
 export default App;
