@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link }             from 'react-router-dom';
 
-const SignUp = () => (
+import * as ROUTES      from '../../constants/routes';
+import SignUpForm       from './SignUpForm'
+import SignUpLink       from './SignUpLink'
+
+const SignUpPage = () => (
   <div>
-    SignUp Page
+    <h1>SignUp</h1>
+
+    <SignUpForm />
   </div>
 );
 
-export default SignUp;
+export default SignUpPage;
