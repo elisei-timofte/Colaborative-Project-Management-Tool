@@ -4,8 +4,9 @@ import {
   Route,
 } from 'react-router-dom';
 
-import { withFirebase } from '../Firebase';
-import * as ROUTES      from '../../constants/routes';
+import { withFirebase }    from '../Firebase';
+import { AuthUserContext } from '../Session';
+import * as ROUTES         from '../../constants/routes';
 
 import Navigation         from '../Navigation';
 import LandingPage        from '../Landing';
@@ -42,21 +43,23 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div>
-          <Navigation authUser={this.state.authUser} />
+      <AuthUserContext.Provider value={this.state.authUser}>
+        <Router>
+          <div>
+            <Navigation />
 
-          <hr />
+            <hr />
 
-          <Route exact path={ROUTES.LANDING} component={LandingPage} />
-          <Route path={ROUTES.HOME} component={HomePage} />
-          <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-          <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-          <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-          <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-          <Route path={ROUTES.ADMIN} component={AdminPage} />
-        </div>
-      </Router>
+            <Route exact path={ROUTES.LANDING} component={LandingPage} />
+            <Route path={ROUTES.HOME} component={HomePage} />
+            <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+            <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+            <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+            <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+            <Route path={ROUTES.ADMIN} component={AdminPage} />
+          </div>
+        </Router>
+      </AuthUserContext.Provider>
     );
   }
 }
