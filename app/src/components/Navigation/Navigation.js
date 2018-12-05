@@ -25,6 +25,9 @@ const Navigation = () => (
       <li>
         <Link to={ROUTES.ADMIN}>Admin</Link>
       </li>
+      <li>
+        <SignOutButton />
+      </li>
     </ul>
   </div>
 );
