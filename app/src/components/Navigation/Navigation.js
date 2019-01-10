@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
 import * as ROUTES   from '../../constants/routes';
-
+import './navigation.scss';
 const Navigation = () => (
-  <div>
+  <div className='navigation'>
     <AuthUserContext.Consumer>
       {authUser =>
         authUser ? <NavigationAuth /> : <NavigationNonAuth />
@@ -25,6 +25,9 @@ const NavigationAuth = () => (
     </li>
     <li>
       <Link to={ROUTES.ACCOUNT}>Account</Link>
+    </li>
+    <li>
+      <Link to={ROUTES.ADMIN}>Admin</Link>
     </li>
     <li>
       <SignOutButton />
