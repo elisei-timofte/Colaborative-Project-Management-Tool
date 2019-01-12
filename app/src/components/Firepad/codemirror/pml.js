@@ -54,6 +54,7 @@ global.CodeMirror.defineMode("diff", function() {
       return token_name;
     }
   };
+import './addon'
 });
 
 // CodeMirror.defineMIME("text/x-diff", "diff");
