@@ -6,6 +6,7 @@ global.CodeMirror.defineSimpleMode("pml", {
   start: [
     {regex: /@[a-z]+(:[a-z]+)?/, token: "pml-alias"},
     {regex: /&[0-9\-]+/, token: "pml-date"},
+    {regex: /\[-\][a-zA-Z ]+/, token: "pml-todo"},
   ],
 });
 
