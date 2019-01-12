@@ -55,11 +55,11 @@ class Firebase {
   initFirepad = () => {
     //// Get Firebase Database reference.
     var firepadRef = this.getExampleRef();
-    console.log(firepadRef);
+
     //// Create CodeMirror (with line numbers and the JavaScript mode).
     var codeMirror = global.CodeMirror(document.getElementById('firepad-container'), {
       lineNumbers: true,
-      mode: 'javascript'
+      mode: 'diff'
     });
 
     //// Create Firepad.
@@ -67,9 +67,10 @@ class Firebase {
       defaultText: '// JavaScript Editing with Firepad!\nfunction go() {\n  var message = "Hello, world.";\n  console.log(message);\n}',
       richTextShortcuts: true,
     });
-    console.log(global.firepad);
   }
 
 }
+
+
 
 export default Firebase;
