@@ -16,9 +16,11 @@ import HomePage           from '../Home';
 import AccountPage        from '../Account';
 import AdminPage          from '../Admin';
 
+import './app.scss';
+
 const App = () => (
   <Router>
-    <div>
+    <div className='app'>
       <Navigation />
 
       <hr />

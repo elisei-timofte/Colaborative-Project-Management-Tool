@@ -1,5 +1,7 @@
-import app from 'firebase/app';
+import firebase from 'firebase/app';
+
 import 'firebase/auth';
+import 'firebase/database';
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -12,11 +14,11 @@ const config = {
 
 class Firebase {
   constructor() {
-    app.initializeApp(config);
+    firebase.initializeApp(config);
 
-    this.auth = app.auth();
+    this.auth = firebase.auth();
+    this.db = firebase.database();
   }
-
   // *** Auth API ***
   doCreateUserWithEmailAndPassword = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
@@ -30,6 +32,40 @@ class Firebase {
 
   doPasswordUpdate = password =>
     this.auth.currentUser.updatePassword(password);
+
+  getExampleRef = () => {
+    var ref = this.db.ref();
+    var hash = window.location.hash.replace(/#/g, '');
+    if (hash) {
+      ref = ref.child(hash);
+    } else {
+      ref = ref.push(); // generate unique location.
+      window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
+    }
+    if (typeof console !== 'undefined') {
+      console.log('Firebase data: ', ref.toString());
+    }
+    return ref;
+  }
+
+  initFirepad = () => {
+    //// Get Firebase Database reference.
+    var firepadRef = this.getExampleRef();
+    console.log(firepadRef);
+    //// Create CodeMirror (with line numbers and the JavaScript mode).
+    var codeMirror = global.CodeMirror(document.getElementById('firepad-container'), {
+      lineNumbers: true,
+      mode: 'javascript'
+    });
+
+    //// Create Firepad.
+    global.firepad = global.Firepad.fromCodeMirror(firepadRef, codeMirror, {
+      defaultText: '// JavaScript Editing with Firepad!\nfunction go() {\n  var message = "Hello, world.";\n  console.log(message);\n}',
+      richTextShortcuts: true,
+    });
+    console.log(global.firepad);
+  }
+
 }
 
 export default Firebase;
