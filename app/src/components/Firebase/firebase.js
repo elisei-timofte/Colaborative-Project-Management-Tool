@@ -59,7 +59,7 @@ class Firebase {
     //// Create CodeMirror (with line numbers and the JavaScript mode).
     var codeMirror = global.CodeMirror(document.getElementById('firepad-container'), {
       lineNumbers: true,
-      mode: 'diff'
+      mode: 'pml'
     });
 
     //// Create Firepad.
