@@ -1,4 +1,5 @@
 import './addon'
+import './pml.scss'
 
 global.CodeMirror.defineSimpleMode("pml", {
   // The start state contains the rules that are intially used
