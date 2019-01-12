@@ -33,6 +33,10 @@ class Firebase {
   doPasswordUpdate = password =>
     this.auth.currentUser.updatePassword(password);
 
+  user = uid => this.db.ref(`users/${uid}`);
+
+  users = () => this.db.ref('users');
+
   getExampleRef = () => {
     var ref = this.db.ref();
     var hash = window.location.hash.replace(/#/g, '');
