@@ -64,7 +64,7 @@ class Firebase {
 
     //// Create Firepad.
     global.firepad = global.Firepad.fromCodeMirror(firepadRef, codeMirror, {
-      defaultText: "This is a @person. It can also have a role like @observer:jimi\n\nDates are used as follows: &12-29-2019\n\n[-] Un task care este asignat lui @elisei care trebuie finalizat pana pe &12-01-2019\n\n[-] Aici il avem asignat pe @reviewer:jimi\n\telisei >>> Un comentariu\n\tjimi >>> Alt comentariu \n      dar pe mai multe \n      linii",
+      defaultText: "This is a @person. It can also have a role like @observer:jimi\n\nDates are used as follows: &29-12-2019\n\n[-] Un task care este asignat lui @elisei care trebuie finalizat pana pe &13-01-2019\n\n[-] Aici il avem asignat pe @reviewer:jimi\n\telisei >>> Un comentariu\n\jimi >>> Alt comentariu \n      dar pe mai multe \n      linii",
       richTextShortcuts: true,
     });
   }
