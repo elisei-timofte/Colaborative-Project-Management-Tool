@@ -9,11 +9,16 @@ global.CodeMirror.defineSimpleMode("pml", {
     {regex: /\[-\][a-zA-Z ]+/, token: "pml-task"},
     {regex: /.+>>>.+(?<!\\)$/, token: "pml-message"},
     {regex: /.+>>>.+\\$/, token: "pml-message", next: "pml-message"},
+    {regex: /^\#[^\#]+/, token: "comment"},
+    {regex: /\#\#\#/, token: "comment", next: "comment"},
   ],
-  "pml-message": [
+  'pml-message': [
     {regex: /.+(?<!\\)$/, token: "pml-message", next: "start"},
     {regex: /.+\\$/, token: "pml-message"},
   ],
+  comment: [
+    {regex: /.*?\#\#\#$/, token: "comment", next: "start"},
+    {regex: /.+/, token: "comment"},
   ],
 });
 
