@@ -22,6 +22,4 @@ global.CodeMirror.defineSimpleMode("pml", {
   ],
 });
 
-// CodeMirror.defineMIME("text/x-diff", "diff");
-//
-// });
+export default global.CodeMirror;
